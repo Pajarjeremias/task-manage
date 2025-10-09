@@ -85,6 +85,12 @@ The application will be available at:
 
 ## Tasks
 
+## References
+
+The following Docker workshop provides clear instructions that are helpful for completing the tasks in this project: https://docs.docker.com/get-started/workshop/02_our_app/
+
+Muita linkkejä jotka auttavat...
+
 Tänne tehtävät
 
 ## CI/CD Pipeline
