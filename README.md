@@ -183,6 +183,8 @@ Your goal is to implement a CI pipeline for the Task Management System:
       Database connection established successfully.
       Database models synchronized.
       ```
+      
+      Check the backend health endpoint: `https://your-backend.onrender.com/api/health`
 
    3. **Frontend**
       - Create Static site for the frontend
