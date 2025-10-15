@@ -217,7 +217,7 @@ Your goal is to implement a CI pipeline for the Task Management System:
 
 
 ## Task 6. Monitoring
-- SOMETHING SIMPLE HERE: Bäkkärissä on health check url. Lokituksen monitorointi?
+- SOMETHING SIMPLE HERE: Bäkkärissä on health check url. Lokituksen monitorointi? Tämä vaatisi varmaan lisäyksi lokitukseen sovelluksessa. Jätetäänkö tämä osuus pois lopputyöstä??
 
 **TODO** PISTEYTYS TASKEILLE
 
