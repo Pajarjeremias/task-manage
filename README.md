@@ -44,13 +44,13 @@ flowchart LR
       DB[(PostgreSQL)]
    end
 
-   FE -->|API calls (Axios / HTTP)| BE
+   FE -->|API calls| BE
    BE -->|HTTP responses| FE
 
    FE -->|Authorization: Bearer token| BE
    BE -->|issues JWT (on auth)| FE
 
-   BE -->|Read / Write (SQL)| DB
+   BE -->|Read/Write| DB
    DB -->|Query results| BE
 
    BE -->|issue/verify| Auth
