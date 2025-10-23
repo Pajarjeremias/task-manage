@@ -1,7 +1,5 @@
 # Task Management System - DevOps Project
 
-**TODO** Käännetään tämä myös suomenkieliseksi README_fi.md tiedostoon.
-
 A full-stack task management application built for learning DevOps practices including CI/CD pipelines, containerization, and cloud deployment.
 
 ## Features
@@ -368,8 +366,6 @@ You can choose either **Path 1 (Manual deployment & CD workflow)** or **Path 2 (
 
 ### Path 2: Deployment using containers
 
-TÄMÄ OLISI VAIHTOEHTOINEN POLKU. TÄTÄ EN OLE ITSE TESTANNUT
-
 This option deploys both backend and frontend as Docker containers on Render.com. If you want, you can also mix this path with the previous one, by deploying the backend as a Docker container and the frontend as a static site.
 
 Render.com provides PostgreSQL as a managed service, which we recommend using instead of deploying your own database container.
@@ -415,9 +411,17 @@ Docker container registries typically support both public and private images. Fo
 
 ## Task 6. Monitoring
 
-- SOMETHING SIMPLE HERE: Bäkkärissä on health check url. Lokituksen monitorointi? Tämä vaatisi varmaan lisäyksi lokitukseen sovelluksessa. Jätetäänkö tämä osuus pois lopputyöstä??
+Implement monitoring and health checks for your deployed application:
 
-**TODO** PISTEYTYS TASKEILLE
+1. **Configure Render.com Health Checks for backend**
+   - Enable [health check monitoring](https://render.com/docs/health-checks) in your Render.com backend service settings.
+   - Set the health check path to `/api/health`.
+   - Configure appropriate intervals and timeout values.
+   - Render.com will automatically restart your service if health checks fail consistently.
+
+2. **Set Up Notifications**
+   - Configure [notification settings](https://render.com/docs/notifications) in Render.com to receive alerts when services go down or health checks fail.
+   - Add email or Slack notifications for deployment failures and service health issues.
 
 ## Deliveries & Submission
 For successful completion of the project, submit the following:
