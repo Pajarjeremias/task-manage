@@ -9,7 +9,8 @@ RUN npm run build
 
 FROM node:18-alpine AS prod
 WORKDIR /src
-ARG NODE_ENV
-ENV NODE_ENV=${NODE_ENV}
+# These are for local docker build
+#ARG NODE_ENV
+#ENV NODE_ENV=${NODE_ENV}
 COPY --from=build /src ./
 CMD ["npm", "run", "start"]
