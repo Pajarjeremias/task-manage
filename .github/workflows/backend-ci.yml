@@ -15,14 +15,6 @@ jobs:
   implement-ci-pipeline-backend:
     runs-on: ubuntu-latest
 
-    container: postgres-local # Change this for somenthin that makes data persistant
-
-    services:
-      postgres:
-        image: postgres-local
-        env:
-          POSTGRES_PASSWORD: ${{ env.POSTGRES_PASSWORD }}
-
     steps:
       - name: checkout repository
         uses: actions/checkout@v5
@@ -34,3 +26,7 @@ jobs:
       - name: run backend tst
         working-directory: ./backend
         run: npm run test
+
+      - name: Lintering
+        working-directory: ./backend
+        run: npm run lint

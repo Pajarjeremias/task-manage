@@ -18,13 +18,13 @@ jobs:
         uses: actions/checkout@v5
 
       - name: Install dependencies
-        working-directory: ./backend
+        working-directory: ./frontend
         run: npm ci
 
-      - name: run backend tst
-        working-directory: ./backend
+      - name: run frontend tst
+        working-directory: ./frontend
         run: npm run test
 
       - name: Lintering
-        working-directory: ./backend
-        run: npm lint
+        working-directory: ./frontend
+        run: npm run lint
