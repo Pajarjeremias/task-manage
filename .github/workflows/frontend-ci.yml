@@ -17,6 +17,12 @@ jobs:
       - name: checkout repository
         uses: actions/checkout@v5
 
+      - name: Setup
+        working-directory: ./frontend
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+
       - name: Install dependencies
         working-directory: ./frontend
         run: npm ci
@@ -28,3 +34,7 @@ jobs:
       - name: Lintering
         working-directory: ./frontend
         run: npm run lint
+
+      - name: audit
+        working-directory: ./frontend
+        run: npm audit --audit-level=critical
