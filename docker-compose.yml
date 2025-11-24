@@ -1,0 +1,36 @@
+# Sources used in this:
+#https://github.com/docker/awesome-compose/blob/master/react-rust-postgres/compose.yaml
+services:
+  postgres:
+    image: postgres:16-alpine
+    env_file: ".env" # i put .env file also on the project root
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./sql:/docker-entrypoint-initdb.d/
+    ports:
+      - "5432:5432"
+# source (https://github.com/DevOps-classroom-assignments/5-docker-compose-and-postgresql-Pajarjeremias/blob/main/docker-compose.yml)
+
+  backend:
+    build: ./backend
+    container_name: task-manage-backend
+    env_file: ".env" # i put .env file also on the project root
+    environment: #overwrite env database url´s host value, from localhost to postgres
+      DATABASE_URL: postgresql://postgres:postgres@postgres:5432/taskmanagement
+     
+    depends_on:
+      - postgres
+
+  frontend:
+    build: ./frontend # (https://docs.docker.com/reference/compose-file/build/)
+    container_name: task-manage-frontend
+    env_file: ".env"
+    depends_on:
+      - backend
+    ports:
+      - "5000:5000"
+
+volumes:
+  pgdata:
+       
+
