@@ -1,0 +1,28 @@
+name: frontend ci pipeline
+
+on:
+  push:
+    - main
+  pull_request:
+    - main
+  workflow_dispatch:
+
+jobs:
+  implement-ci-pipeline-frontend:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout repository
+        uses: actions/checkout@v5
+
+      - name: Install dependencies
+        working-directory: ./backend
+        run: npm ci
+
+      - name: run backend tst
+        working-directory: ./backend
+        run: npm run test
+
+      - name: Lintering
+        working-directory: ./backend
+        run: npm lint

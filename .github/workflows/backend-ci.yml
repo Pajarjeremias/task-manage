@@ -1,0 +1,34 @@
+# Documentation used in this: 
+#https://docs.github.com/en/actions/tutorials/use-containerized-services/create-postgresql-service-containers
+name: backend ci pipeline
+
+on:
+  push:
+    - main
+  pull_request:
+    - main
+  workflow_dispatch:
+
+jobs:
+  implement-ci-pipeline-backend:
+    runs-on: ubuntu-latest
+
+    container: postgres-local # Change this for somenthin that makes data persistant
+
+    services:
+      postgres:
+        image: postgres-local
+        env:
+          POSTGRES_PASSWORD: ${{ env.POSTGRES_PASSWORD }}
+
+    steps:
+      - name: checkout repository
+        uses: actions/checkout@v5
+
+      - name: Install dependencies
+        working-directory: ./backend
+        run: npm ci
+
+      - name: run backend tst
+        working-directory: ./backend
+        run: npm run test
